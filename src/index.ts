@@ -18,16 +18,16 @@ const client = new line.Client(config);
 const broadcastMessage = async () => {
   try {
     const messages: Types.Message[] = [
-      { type: 'text', text: '登校のリアクションお願いします' },
-      { type: 'text', text: '車' },
-      { type: 'text', text: '歩き' },
-      { type: 'text', text: '休み' },
+      { type: 'text', text: '🏫登校のリアクションお願いします🙏' },
+      { type: 'text', text: '🚗' },
+      { type: 'text', text: '🏃' },
+      { type: 'text', text: '🇪 🇹 🇨' },
     ];
     const messages2: Types.Message[] = [
-      { type: 'text', text: '下校のリアクションお願いします' },
-      { type: 'text', text: '車' },
-      { type: 'text', text: '歩き' },
-      { type: 'text', text: '習い事など' },
+      { type: 'text', text: '🏠下校のリアクションお願いします🙏' },
+      { type: 'text', text: '🚗' },
+      { type: 'text', text: '🏃' },
+      { type: 'text', text: '🇪 🇹 🇨' },
     ];
     await Promise.all([
       client.broadcast(messages),
