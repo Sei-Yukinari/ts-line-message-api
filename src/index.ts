@@ -19,22 +19,21 @@ const client = new line.Client(config);
 // メッセージを送信
 const broadcastMessage = async () => {
   try {
-    const messages: Types.Message[] = [
+    const goToSchoolMessages: Types.Message[] = [
       { type: 'text', text: '🏫登校のリアクションお願いします🙏' },
       { type: 'text', text: '車:🚗' },
       { type: 'text', text: '歩き:🏃' },
       { type: 'text', text: 'その他(お休み等)' },
     ];
-    const messages2: Types.Message[] = [
+    const leavingSchoolMessages: Types.Message[] = [
       { type: 'text', text: '🏠下校のリアクションお願いします🙏' },
       { type: 'text', text: '車:🚗' },
       { type: 'text', text: '歩き:🏃' },
       { type: 'text', text: 'その他(お休み等)' },
     ];
-    await Promise.all([
-      client.pushMessage(groupID, messages),
-      client.pushMessage(groupID, messages2),
-    ]);
+    // メッセージを送信
+    await client.pushMessage(groupID, goToSchoolMessages);
+    await client.pushMessage(groupID, leavingSchoolMessages);
   } catch (error: unknown) {
     console.error('Error sending broadcast message:', error);
   }
@@ -42,5 +41,5 @@ const broadcastMessage = async () => {
 
 // 祝日ならブロードキャストメッセージを送信しない
 if (!isHoliday()) {
-  broadcastMessage().then((r) => console.log('Done!'));
+  broadcastMessage().then(() => console.log('Done!'));
 }

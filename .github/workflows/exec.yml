@@ -3,9 +3,6 @@ name: Schedule npm start
 on:
   schedule:
     - cron: '0 6 * * 1-5'
-  push:
-    branches:
-      - main
 
 jobs:
   run-npm-start:
