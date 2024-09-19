@@ -2,7 +2,7 @@ name: Schedule npm start
 
 on:
   schedule:
-    - cron: '0 6 * * 1-5'
+    - cron: '0 21 * * 0-4' # 21:00 UTC = 06:00 JST
 
 jobs:
   run-npm-start:
