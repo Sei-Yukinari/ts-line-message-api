@@ -8,30 +8,32 @@ dotenv.config();
 // LINE API設定
 const config: line.ClientConfig = {
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || '',
-  channelSecret: process.env.LINE_CHANNEL_SECRET || '',
 };
+
+// チャネルID
+const groupID = process.env.LINE_GROUP_ID || '';
 
 // クライアントインスタンスを作成
 const client = new line.Client(config);
 
-// ブロードキャストメッセージを送信
+// メッセージを送信
 const broadcastMessage = async () => {
   try {
     const messages: Types.Message[] = [
       { type: 'text', text: '🏫登校のリアクションお願いします🙏' },
-      { type: 'text', text: '🚗' },
-      { type: 'text', text: '🏃' },
-      { type: 'text', text: '🇪 🇹 🇨' },
+      { type: 'text', text: '車:🚗' },
+      { type: 'text', text: '歩き:🏃' },
+      { type: 'text', text: 'その他(お休み等)' },
     ];
     const messages2: Types.Message[] = [
       { type: 'text', text: '🏠下校のリアクションお願いします🙏' },
-      { type: 'text', text: '🚗' },
-      { type: 'text', text: '🏃' },
-      { type: 'text', text: '🇪 🇹 🇨' },
+      { type: 'text', text: '車:🚗' },
+      { type: 'text', text: '歩き:🏃' },
+      { type: 'text', text: 'その他(お休み等)' },
     ];
     await Promise.all([
-      client.broadcast(messages),
-      client.broadcast(messages2),
+      client.pushMessage(groupID, messages),
+      client.pushMessage(groupID, messages2),
     ]);
   } catch (error: unknown) {
     console.error('Error sending broadcast message:', error);
