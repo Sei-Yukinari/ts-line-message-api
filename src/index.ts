@@ -17,10 +17,14 @@ const groupID = process.env.LINE_GROUP_ID || '';
 const client = new line.Client(config);
 
 // メッセージを送信
-const broadcastMessage = async () => {
+const broadcastMessage = async (date: Date) => {
+  const today = date.toLocaleDateString('ja-JP', {
+    day: 'numeric',
+    weekday: 'short',
+  });
   try {
     const goToSchoolMessages: Types.Message[] = [
-      { type: 'text', text: '🏫登校のリアクションお願いします🙏' },
+      { type: 'text', text: `${today}\n🏫登校のリアクションお願いします🙏` },
       { type: 'text', text: '車:🚗' },
       { type: 'text', text: '歩き:🏃' },
       { type: 'text', text: 'その他(お休み等)' },
@@ -29,6 +33,7 @@ const broadcastMessage = async () => {
       { type: 'text', text: '🏠下校のリアクションお願いします🙏' },
       { type: 'text', text: '車:🚗' },
       { type: 'text', text: '歩き:🏃' },
+      { type: 'text', text: '歩き(途中):🏃⇒🏭⇒🚙' },
       { type: 'text', text: 'その他(お休み等)' },
     ];
     // メッセージを送信
@@ -39,7 +44,9 @@ const broadcastMessage = async () => {
   }
 };
 
-// 祝日ならブロードキャストメッセージを送信しない
-if (!isHoliday()) {
-  broadcastMessage().then(() => console.log('Done!'));
+const today = new Date();
+today.setHours(today.getHours() + 9); // JSTに変換
+// 祝日ならメッセージを送信しない
+if (!isHoliday(today)) {
+  broadcastMessage(today).then(() => console.log('Done!'));
 }
