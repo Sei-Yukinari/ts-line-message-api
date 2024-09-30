@@ -42,4 +42,6 @@ if (!isHoliday(today)) {
   broadcastMessage(today)
     .then(() => console.log('Done!'))
     .catch((error) => console.error('Error:', error))
+} else {
+  console.log('Today is holiday.')
 }
