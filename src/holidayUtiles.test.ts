@@ -60,4 +60,8 @@ describe('isHoliday', () => {
     const date = new Date('2024-08-21')
     expect(isHoliday(date)).toBe(false)
   })
+  it('returns true for a date planned holiday', () => {
+    const date = new Date('2024-10-09')
+    expect(isHoliday(date)).toBe(true)
+  })
 })

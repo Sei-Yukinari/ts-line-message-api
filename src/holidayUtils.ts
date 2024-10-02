@@ -19,5 +19,6 @@ export const isHoliday = (date: Date): boolean => {
 }
 
 const schoolSpecificHolidays: string[] = [
+  '10-9', // 計画休日
   '10-15', // 運動会振替
 ]
