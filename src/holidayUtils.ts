@@ -9,7 +9,7 @@ export const isHoliday = (date: Date): boolean => {
   if (schoolSpecificHolidays.includes(`${month}-${day}`)) return true
 
   return (
-    (month === 12 && day >= 23) ||
+    (month === 12 && day >= 25) ||
     (month === 1 && day <= 8) || // 冬休み判定
     (month === 3 && day >= 15) ||
     (month === 4 && day <= 5) || // 春休み判定
