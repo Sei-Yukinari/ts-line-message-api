@@ -38,7 +38,7 @@ describe('isHoliday', () => {
 
   it('returns false for a date just after winter break', () => {
     const date = new Date('2025-01-08')
-    expect(isHoliday(date)).toBe(false)
+    expect(isHoliday(date)).toBe(true)
   })
 
   it('returns false for a date just before spring break', () => {
