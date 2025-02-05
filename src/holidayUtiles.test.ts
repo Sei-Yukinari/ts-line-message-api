@@ -65,7 +65,7 @@ describe('isHoliday', () => {
     expect(isHoliday(date)).toBe(true)
   })
   it('returns true for a date music concert rescheduled holiday', () => {
-    const date = new Date('2024-11-11')
+    const date = new Date('2025-02-10')
     expect(isHoliday(date)).toBe(true)
   })
 })
