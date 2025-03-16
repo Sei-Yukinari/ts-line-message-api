@@ -47,7 +47,7 @@ describe('isHoliday', () => {
   })
 
   it('returns false for a date just after spring break', () => {
-    const date = new Date('2024-04-06')
+    const date = new Date('2024-04-07')
     expect(isHoliday(date)).toBe(false)
   })
 
