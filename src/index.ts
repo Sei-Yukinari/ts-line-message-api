@@ -36,6 +36,7 @@ const broadcastMessage = async (date: Date) => {
 }
 
 const today = new Date()
+today.setDate(today.getDate() + 1) // 前日に送るので+1
 today.setHours(today.getHours() + 9) // JSTに変換
 // 休みならメッセージを送信しない
 if (!isHoliday(today)) {
