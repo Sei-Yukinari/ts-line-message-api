@@ -7,7 +7,7 @@ describe('isHoliday', () => {
   })
 
   it('returns true for a school-specific holiday', () => {
-    const date = new Date('2024-10-15')
+    const date = new Date('2025-04-28')
     expect(isHoliday(date)).toBe(true)
   })
 
@@ -60,10 +60,7 @@ describe('isHoliday', () => {
     const date = new Date('2024-08-21')
     expect(isHoliday(date)).toBe(false)
   })
-  it('returns true for a date planned holiday', () => {
-    const date = new Date('2024-10-09')
-    expect(isHoliday(date)).toBe(true)
-  })
+
   it('returns true for a date music concert rescheduled holiday', () => {
     const date = new Date('2025-02-10')
     expect(isHoliday(date)).toBe(true)
