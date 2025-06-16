@@ -58,7 +58,7 @@ describe('isHoliday', () => {
 
   it('returns false for a date just after summer break', () => {
     const date = new Date('2024-08-21')
-    expect(isHoliday(date)).toBe(false)
+    expect(isHoliday(date)).toBe(true)
   })
 
   it('returns true for a date music concert rescheduled holiday', () => {

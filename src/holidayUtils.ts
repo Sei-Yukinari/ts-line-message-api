@@ -13,8 +13,8 @@ export const isHoliday = (date: Date): boolean => {
     (month === 1 && day <= 8) || // 冬休み判定
     (month === 3 && day >= 19) ||
     (month === 4 && day <= 6) || // 春休み判定
-    (month === 7 && day >= 20) ||
-    (month === 8 && day <= 20) // 夏休み判定
+    (month === 7 && day >= 25) ||
+    (month === 8 && day <= 26) // 夏休み判定
   )
 }
 
