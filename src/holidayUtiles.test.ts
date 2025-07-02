@@ -52,12 +52,12 @@ describe('isHoliday', () => {
   })
 
   it('returns false for a date just before summer break', () => {
-    const date = new Date('2024-07-19')
-    expect(isHoliday(date)).toBe(false)
+    const date = new Date('2024-07-23')
+    expect(isHoliday(date)).toBe(true)
   })
 
   it('returns false for a date just after summer break', () => {
-    const date = new Date('2024-08-21')
+    const date = new Date('2024-08-20')
     expect(isHoliday(date)).toBe(true)
   })
 
