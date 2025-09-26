@@ -65,4 +65,8 @@ describe('isHoliday', () => {
     const date = new Date('2025-02-10')
     expect(isHoliday(date)).toBe(true)
   })
+  it('returns true for a school-specific holiday', () => {
+    const date = new Date('2025-10-08')
+    expect(isHoliday(date)).toBe(true)
+  })
 })
