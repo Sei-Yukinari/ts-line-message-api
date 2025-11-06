@@ -64,4 +64,8 @@ describe('isHoliday', () => {
     const date = new Date('2025-10-14')
     expect(isHoliday(date)).toBe(true)
   })
+  it('returns true substitute day for the music festival', () => {
+    const date = new Date('2025-11-10')
+    expect(isHoliday(date)).toBe(true)
+  })
 })
